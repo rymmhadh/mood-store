@@ -1,0 +1,338 @@
+@import 'tailwindcss';
+
+/* =========================================================================
+   MOOD STORE — Tokens de design
+   Palette et échelles issues du cahier des charges (§2 et Annexe A).
+   Toute valeur de couleur, d'espacement ou de durée passe par un token :
+   aucune valeur en dur dans les composants.
+   ========================================================================= */
+
+@theme {
+  /* --- Couleurs ------------------------------------------------------- */
+  --color-encre: #0a0a0a;
+  --color-encre-doux: #1c1b19;
+  --color-craie: #f7f4ee;
+  --color-blanc: #ffffff;
+  --color-galerie: #f1eee9;
+  --color-boucle: #e3d9cb;
+  --color-sable: #c9bca9;
+  /* Gris neutre réservé aux formulaires. Le sable est beige : sur une zone
+     de saisie il tire vers le décoratif, alors qu'un champ doit rester
+     strictement blanc et noir. */
+  --color-trait: #d8d6d2;
+  --color-bois: #a87f52;
+  --color-bronze: #9c7b4d;
+  --color-pierre: #8b8880;
+  --color-fumee: #4a4845;
+
+  /* --- Typographie ---------------------------------------------------- */
+  --font-sans: var(--font-jost), 'Helvetica Neue', Arial, sans-serif;
+
+  /* Aucun interlettrage sur les titres ni sur le texte courant. C'est le
+     parti pris des grandes maisons : la lettre espacée convient aux petits
+     labels en capitales, elle rend la lecture flottante partout ailleurs. */
+  --text-display: 4rem;
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: 0;
+  --text-display--font-weight: 300;
+
+  --text-h1: 2.625rem;
+  --text-h1--line-height: 1.12;
+  --text-h1--letter-spacing: 0;
+  --text-h1--font-weight: 400;
+
+  --text-h2: 2rem;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: 0;
+  --text-h2--font-weight: 400;
+
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.32;
+  --text-h3--letter-spacing: 0;
+  --text-h3--font-weight: 400;
+
+  --text-lead: 1.0625rem;
+  --text-lead--line-height: 1.7;
+  --text-lead--letter-spacing: 0;
+
+  --text-nav: 0.9375rem;
+  --text-nav--line-height: 1.2;
+  --text-nav--letter-spacing: 0.04em;
+
+  /* Surtitre de section : capitales, mais espacement mesuré */
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.06em;
+  --text-eyebrow--font-weight: 700;
+
+  /* --- Mouvement ------------------------------------------------------ */
+  --ease-doux: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-cine: cubic-bezier(0.83, 0, 0.17, 1);
+
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-kenburns: kenburns 20s var(--ease-doux) infinite alternate;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1) translate3d(0, 0, 0); }
+    to { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+  }
+}
+
+/* --- Variables hors thème Tailwind ------------------------------------ */
+:root {
+  /* En-tête — une seule rangée sur mobile */
+  --header-h: 4.25rem;
+  --nav-h: 4.25rem;
+  --nav-utilitaire-h: 0rem;
+  --logo-taille: 3rem;
+  --marge-laterale: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  :root { --marge-laterale: 2.5rem; }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* Deux niveaux : rangée utilitaire 36 px + navigation 76 px = 112 px.
+       Les boutons de la rangée utilitaire sont compactés en hauteur (36 px)
+       mais conservent 44 px de largeur : la cible tactile reste confortable
+       et il ne subsiste aucun espace mort au-dessus de la navigation. */
+    --header-h: 7rem;
+    --nav-h: 4.75rem;
+    --nav-utilitaire-h: 2.25rem;
+    --logo-taille: 4.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root { --marge-laterale: 5rem; }
+}
+
+/* --- Base ------------------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-sable/40;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-craie text-encre font-sans antialiased;
+    /* Graisse régulière : le 300 était trop fin en corps de texte, la
+       lecture y perdait sur les écrans peu contrastés. */
+    font-weight: 400;
+  }
+
+  /* Focus toujours visible — jamais supprimé (cf. §23.3) */
+  :focus-visible {
+    outline: 2px solid var(--color-bronze);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-encre);
+    color: var(--color-craie);
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 400;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* --- Utilitaires projet ------------------------------------------------ */
+@utility conteneur {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--marge-laterale);
+  max-width: 100rem;
+}
+
+/* Surtitre de section : capitales, gras, noir. Le contraste de graisse
+   suffit à le détacher — inutile de lui donner une couleur d'accent, qui
+   le ferait passer pour un lien. */
+@utility eyebrow {
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Libellé d'action : casse normale, aucun interlettrage. Les boutons des
+   maisons de mobilier haut de gamme se lisent comme une phrase, pas comme
+   une enseigne — « Prendre rendez-vous en showroom », pas « PRENDRE RDV ». */
+@utility libelle-action {
+  font-size: 0.9375rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+/* Lien à soulignement animé — signature Roche Bobois */
+@utility lien-souligne {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 400ms var(--ease-doux);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+
+/* Lien de navigation principale : trait fin qui se dessine depuis la gauche.
+   Plus lent et plus discret que le survol classique — repère de luxe. */
+@utility lien-nav {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fumee);
+  transition: color 350ms var(--ease-doux);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: var(--color-encre);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 450ms var(--ease-doux);
+  }
+
+  &:hover,
+  &:focus-visible,
+  &[data-actif='true'] {
+    color: var(--color-encre);
+  }
+
+  &:hover::after,
+  &:focus-visible::after,
+  &[data-actif='true']::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Bouton icône : cible tactile de 48 px, icône centrée, survol animé. */
+@utility bouton-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--color-fumee);
+  transition:
+    color 300ms var(--ease-doux),
+    transform 300ms var(--ease-doux);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-encre);
+    transform: scale(1.1);
+  }
+}
+
+/* Variante compacte : hauteur réduite, largeur de cible conservée. */
+@utility bouton-icone-compact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.25rem;
+  color: var(--color-fumee);
+  transition:
+    color 300ms var(--ease-doux),
+    transform 300ms var(--ease-doux);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-encre);
+    transform: scale(1.1);
+  }
+}
+
+/* Masque de révélation : le contenu monte depuis un rideau */
+@utility masque-revelation {
+  overflow: hidden;
+  display: block;
+}
+
+/* Accessibilité : neutralisation complète du mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================================
+   BACK-OFFICE — jeu de données
+   Le site n'admet aucune couleur vive (§2.1). Les graphiques n'y échappent
+   pas : plutôt que d'inventer une palette catégorielle, tout est encodé sur
+   une seule rampe de bois, du clair au foncé, plus le gris de pierre pour le
+   contrepoint. Une rampe séquentielle dit « plus ou moins », ce qui est
+   précisément le propos d'un tableau de bord.
+
+   Les six pas ont été validés : luminosité monotone, écart suffisant entre
+   pas voisins, et contraste du pas le plus clair ≥ 2:1 sur fond craie.
+   ========================================================================= */
+
+@theme {
+  --color-donnee-100: #c4a67c;
+  --color-donnee-200: #ae8a59;
+  --color-donnee-300: #94703f;
+  --color-donnee-400: #75572f;
+  --color-donnee-500: #543e27;
+  --color-donnee-600: #2e2217;
+
+  /* Voile : remplissage d'aire sous une courbe. Ne porte jamais seul une
+     information — c'est le trait de 2 px qui se lit. */
+  --color-donnee-voile: #e7dcc9;
+}
+
+:root {
+  --rail-admin: 15rem;
+}
+
+/* Tabulation chiffrée : les colonnes de nombres restent alignées. */
+@utility chiffres {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}

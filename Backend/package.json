@@ -1,0 +1,40 @@
+{
+  "name": "mood-store-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mood Store — API (NestJS + Fastify + TypeORM + PostgreSQL)",
+  "scripts": {
+    "base:demarrer": "docker compose up -d",
+    "base:arreter": "docker compose down",
+    "dev": "nest start --watch",
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit",
+    "amorcer": "ts-node -r tsconfig-paths/register src/amorce/lancer-amorce.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@fastify/multipart": "^9.0.3",
+    "@fastify/static": "^10.1.2",
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/platform-fastify": "^11.1.6",
+    "@nestjs/typeorm": "^11.0.0",
+    "@vercel/blob": "^0.27.1",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "sharp": "^0.34.3",
+    "typeorm": "^0.3.25",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.10",
+    "@nestjs/schematics": "^11.0.8",
+    "@types/node": "^22.15.3",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.2"
+  }
+}

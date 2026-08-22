@@ -1,0 +1,8 @@
+# Ce fichier ne couvre que la racine : Frontend/.gitignore et
+# Backend/.gitignore couvrent déjà node_modules, .next, dist, media, etc.
+# dans leurs dossiers respectifs.
+
+_to_delete/
+*.tgz
+.DS_Store
+Thumbs.db

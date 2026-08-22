@@ -1,0 +1,11 @@
+export { Hero } from './Hero';
+export { Metiers } from './Metiers';
+export { RailCollections } from './RailCollections';
+export { SurMesure } from './SurMesure';
+export { AvantApres } from './AvantApres';
+export { Realisations } from './Realisations';
+export { Atelier } from './Atelier';
+export { Showrooms } from './Showrooms';
+export { Temoignages } from './Temoignages';
+export { Journal } from './Journal';
+export { Instagram } from './Instagram';
