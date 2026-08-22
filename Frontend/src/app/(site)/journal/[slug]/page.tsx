@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article || !contenu) return {};
 
   return {
-    title: `${article.titre} — Journal Mood Store`,
+    title: `${article.titre}, Journal`,
     description: contenu.chapo,
     alternates: { canonical: `/journal/${slug}` },
     openGraph: { images: [{ url: article.image }] },

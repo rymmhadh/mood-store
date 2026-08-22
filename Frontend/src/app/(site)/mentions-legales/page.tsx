@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PageLegale } from '@/components/legal/PageLegale';
 
 export const metadata: Metadata = {
-  title: 'Mentions légales et CGV — Mood Store',
+  title: 'Mentions légales et CGV',
   description: 'Mentions légales et conditions générales de vente de Mood Store.',
   robots: { index: false },
   alternates: { canonical: '/mentions-legales' },

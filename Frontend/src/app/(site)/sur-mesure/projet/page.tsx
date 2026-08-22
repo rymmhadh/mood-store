@@ -4,7 +4,7 @@ import { FilAriane } from '@/components/ui/FilAriane';
 import { FormulaireProjet } from '@/components/surmesure/FormulaireProjet';
 
 export const metadata: Metadata = {
-  title: 'Déposer un projet sur mesure — architecte d’intérieur Tunis',
+  title: 'Déposer un projet sur mesure, architecte d’intérieur Tunis',
   description:
     'Envoyez vos plans et vos photos, décrivez votre projet : un conseiller Mood Store vous répond sous 48 heures avec une première étude.',
   alternates: { canonical: '/sur-mesure/projet' },

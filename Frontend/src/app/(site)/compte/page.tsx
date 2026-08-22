@@ -7,7 +7,7 @@ import { IconeCompte } from '@/components/icons';
 import { lienWhatsApp } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Mon compte — Mood Store',
+  title: 'Mon compte',
   description: "L'espace client Mood Store arrive bientôt.",
   robots: { index: false },
 };

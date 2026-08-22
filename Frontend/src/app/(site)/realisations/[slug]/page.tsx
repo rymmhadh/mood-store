@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!projet) return {};
 
   return {
-    title: `${projet.titre} — ${projet.ville} | Réalisations Mood Store`,
+    title: `${projet.titre}, ${projet.ville}, Réalisations`,
     description: `${projet.typologie} à ${projet.ville}${projet.surface ? `, ${projet.surface} m²` : ''}, livré en ${projet.annee}.`,
     alternates: { canonical: `/realisations/${slug}` },
     openGraph: { images: [{ url: projet.image }] },

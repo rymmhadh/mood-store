@@ -5,7 +5,7 @@ import { Nuancier } from '@/components/surmesure/Nuancier';
 import { FormulaireEchantillons } from '@/components/surmesure/FormulaireEchantillons';
 
 export const metadata: Metadata = {
-  title: 'Nos matières et finitions — tissus, cuirs, bois, pierres',
+  title: 'Nos matières et finitions, tissus, cuirs, bois, pierres',
   description:
     'Le nuancier de l’atelier Mood Store : bouclé, lin, velours, cuirs pleine fleur, chêne, noyer, laque, marbre et laiton. Échantillons envoyés gratuitement.',
   alternates: { canonical: '/sur-mesure/matieres' },

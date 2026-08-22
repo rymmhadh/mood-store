@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PageLegale } from '@/components/legal/PageLegale';
 
 export const metadata: Metadata = {
-  title: 'Politique de confidentialité — Mood Store',
+  title: 'Politique de confidentialité',
   description: 'Comment Mood Store collecte, utilise et protège vos données personnelles.',
   robots: { index: false },
   alternates: { canonical: '/politique-confidentialite' },

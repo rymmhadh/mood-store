@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return {};
 
   return {
-    title: `${p.nom} — ${p.type} sur mesure`,
+    title: `${p.nom}, ${p.type} sur mesure`,
     description: p.chapo,
     alternates: { canonical: `/produit/${p.slug}` },
     openGraph: { images: [{ url: p.images[0] }] },

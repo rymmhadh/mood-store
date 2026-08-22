@@ -12,7 +12,7 @@ import { SHOWROOMS_COMPLETS, heureFr, JOURS } from '@/data/showrooms';
 import { SITE, lienWhatsApp } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Contact — Mood Store Tunis & Sousse',
+  title: 'Contact, Tunis & Sousse',
   description:
     'Écrivez-nous, appelez-nous au 51 953 889 ou passez au showroom de La Soukra ou de Sousse. Réponse sous 24 heures ouvrées.',
   alternates: { canonical: '/contact' },

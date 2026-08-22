@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: 'fr_TN',
     url: URL_SITE,
     siteName: SITE.nom,
-    title: 'Mood Store — L’art du sur-mesure',
+    title: 'Mood Store, l’art du sur-mesure',
     description: 'Mobilier sur mesure et architecture d’intérieur. Tunis & Sousse.',
     images: [{ url: '/images/hero/1.webp', width: 2560, height: 1440 }],
   },

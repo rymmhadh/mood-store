@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!s) return {};
 
   return {
-    title: `${s.nom} — meuble sur mesure à ${s.ville}`,
+    title: `${s.nom}, meuble sur mesure à ${s.ville}`,
     description: `Notre showroom de ${s.ville} : ${s.adresseComplete}. Ouvert du lundi au samedi. Prise de rendez-vous en ligne.`,
     alternates: { canonical: `/showroom/${s.slug}` },
   };

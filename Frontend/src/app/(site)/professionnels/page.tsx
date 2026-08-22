@@ -7,7 +7,7 @@ import { Revelation } from '@/components/ui/Revelation';
 import { lienWhatsApp } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Espace professionnel — Architectes, décorateurs, hôtels | Mood Store',
+  title: 'Espace professionnel, architectes, décorateurs, hôtels',
   description:
     'Tarification professionnelle, fichiers techniques et échantillons gratuits pour les architectes, décorateurs, hôtels, restaurants, bureaux et promoteurs.',
   alternates: { canonical: '/professionnels' },

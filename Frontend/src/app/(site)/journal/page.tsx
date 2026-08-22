@@ -6,7 +6,7 @@ import { FilAriane } from '@/components/ui/FilAriane';
 import { ARTICLES } from '@/data/home';
 
 export const metadata: Metadata = {
-  title: 'Journal — Conseils et inspirations | Mood Store',
+  title: 'Journal, conseils et inspirations',
   description:
     'Guides d’achat, matières et entretien : les conseils de Mood Store pour bien choisir et faire durer votre mobilier.',
   alternates: { canonical: '/journal' },

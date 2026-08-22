@@ -8,7 +8,7 @@ import { heureFr, JOURS, SHOWROOMS_COMPLETS } from '@/data/showrooms';
 import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Nos showrooms — La Soukra (Tunis) et Sousse',
+  title: 'Nos showrooms, La Soukra (Tunis) et Sousse',
   description:
     'Découvrez nos collections et touchez les matières dans nos deux showrooms : La Soukra à Tunis et Slim Centre à Sousse. Ouvert du lundi au samedi.',
   alternates: { canonical: '/showroom' },

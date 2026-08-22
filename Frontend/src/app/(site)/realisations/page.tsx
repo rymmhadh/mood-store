@@ -8,7 +8,7 @@ import { REALISATIONS } from '@/data/home';
 import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Nos réalisations — Mood Store',
+  title: 'Nos réalisations',
   description: 'Des espaces livrés par Mood Store à Tunis, La Marsa et Sousse — pas des rendus.',
   alternates: { canonical: '/realisations' },
 };

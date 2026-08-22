@@ -7,7 +7,7 @@ import { TuileInspiration } from '@/components/inspirations/TuileInspiration';
 import { PRODUITS } from '@/data/catalogue';
 
 export const metadata: Metadata = {
-  title: 'Inspirations — Mood Store',
+  title: 'Inspirations',
   description: 'Des intérieurs pensés dans le moindre détail : la sélection Mood Store, en images.',
   alternates: { canonical: '/inspirations' },
 };

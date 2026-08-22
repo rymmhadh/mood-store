@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PageLegale } from '@/components/legal/PageLegale';
 
 export const metadata: Metadata = {
-  title: 'Accessibilité — Mood Store',
+  title: 'Accessibilité',
   description: "Démarche d'accessibilité numérique du site Mood Store.",
   robots: { index: false },
   alternates: { canonical: '/accessibilite' },

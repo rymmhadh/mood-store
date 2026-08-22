@@ -13,7 +13,7 @@ import { PRODUITS } from '@/data/catalogue';
 import { CarteCatalogue } from '@/components/collections/CarteCatalogue';
 
 export const metadata: Metadata = {
-  title: 'Meuble sur mesure à Tunis — l’art du sur-mesure',
+  title: 'Meuble sur mesure à Tunis, l’art du sur-mesure',
   description:
     'Mood Store dessine et fabrique votre mobilier aux dimensions exactes de votre espace : canapés, dressings, bibliothèques, tables, têtes de lit. Atelier à Tunis, délai de 4 à 8 semaines.',
   alternates: { canonical: '/sur-mesure' },

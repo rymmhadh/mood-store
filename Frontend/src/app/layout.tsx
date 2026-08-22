@@ -18,7 +18,7 @@ const URL_SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://moodstore.tn';
 export const metadata: Metadata = {
   metadataBase: new URL(URL_SITE),
   title: {
-    default: 'Mood Store — Meuble sur mesure et architecture d’intérieur | Tunis & Sousse',
+    default: 'Mood Store, meuble sur mesure et architecture d’intérieur | Tunis & Sousse',
     template: '%s | Mood Store',
   },
   description:

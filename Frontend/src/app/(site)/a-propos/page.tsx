@@ -11,7 +11,7 @@ import { ATELIER_IMAGES } from '@/data/home';
 import { COMPTES_INSTAGRAM, SITE } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'À propos — Mood Store',
+  title: 'À propos',
   description:
     "Depuis 2018, Mood Store dessine et fabrique du mobilier sur mesure à Tunis et Sousse, sous la direction de sa fondatrice Meriam Mhadhbi.",
   alternates: { canonical: '/a-propos' },

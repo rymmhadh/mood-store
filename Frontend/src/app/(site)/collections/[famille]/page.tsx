@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!f) return {};
 
   return {
-    title: `${f.nom} sur mesure — ${f.parent}`,
+    title: `${f.nom} sur mesure, ${f.parent}`,
     description: f.chapo,
     alternates: { canonical: `/collections/${f.slug}` },
   };
