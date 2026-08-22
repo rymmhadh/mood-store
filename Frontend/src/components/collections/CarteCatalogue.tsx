@@ -2,9 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState, type MouseEvent } from 'react';
 import { IconeChevron, IconeCoeur } from '@/components/icons';
 import { COLORIS, type Coloris, type ProduitCatalogue } from '@/data/catalogue';
+import { useFavoris } from '@/hooks/useFavoris';
 import { cn } from '@/lib/cn';
 
 interface Props {
@@ -31,7 +33,9 @@ const SWATCHES_VISIBLES = 5;
 export function CarteCatalogue({ produit, coloris: nuancier = COLORIS, prioritaire }: Props) {
   const [index, setIndex] = useState(0);
   const [survol, setSurvol] = useState(false);
-  const [favori, setFavori] = useState(false);
+  const router = useRouter();
+  const { estFavori, basculer } = useFavoris();
+  const favori = estFavori(produit.slug);
 
   const total = produit.images.length;
   const actif = survol && index === 0 ? 1 : index;
@@ -41,6 +45,9 @@ export function CarteCatalogue({ produit, coloris: nuancier = COLORIS, prioritai
     e.stopPropagation();
     setIndex((i) => (i + sens + total) % total);
   };
+
+  /** Toute la carte navigue vers la fiche — pas seulement l'image ou le titre. */
+  const ouvrirFiche = () => router.push(`/produit/${produit.slug}`);
 
   const coloris = produit.colorisIds
     .map((id) => nuancier.find((c) => c.id === id))
@@ -54,7 +61,8 @@ export function CarteCatalogue({ produit, coloris: nuancier = COLORIS, prioritai
         setSurvol(false);
         setIndex(0);
       }}
-      className="group flex flex-col bg-galerie"
+      onClick={ouvrirFiche}
+      className="group flex cursor-pointer flex-col bg-galerie"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Link href={`/produit/${produit.slug}`} className="relative block size-full">
@@ -89,10 +97,18 @@ export function CarteCatalogue({ produit, coloris: nuancier = COLORIS, prioritai
 
         <button
           type="button"
-          onClick={() => setFavori((v) => !v)}
+          onClick={(e) => {
+            e.stopPropagation();
+            basculer({
+              slug: produit.slug,
+              type: produit.type,
+              nom: produit.nom,
+              image: produit.images[0] ?? '',
+            });
+          }}
           aria-label={favori ? 'Retirer du moodboard' : 'Ajouter à mon moodboard'}
           aria-pressed={favori}
-          className="absolute top-3 right-3 flex size-11 items-center justify-center rounded-full text-fumee transition-all duration-300 hover:bg-craie/70 hover:text-encre"
+          className="absolute top-3 right-3 flex size-11 cursor-pointer items-center justify-center rounded-full text-fumee transition-all duration-300 hover:bg-craie/70 hover:text-encre"
         >
           <IconeCoeur
             className={cn('size-5', favori && 'fill-encre text-encre')}
@@ -108,7 +124,7 @@ export function CarteCatalogue({ produit, coloris: nuancier = COLORIS, prioritai
                 type="button"
                 onClick={(e) => naviguer(e, sens)}
                 aria-label={sens === -1 ? 'Visuel précédent' : 'Visuel suivant'}
-                className="pointer-events-auto flex size-10 items-center justify-center rounded-full bg-craie/85 text-encre backdrop-blur-sm transition-colors hover:bg-craie"
+                className="pointer-events-auto flex size-10 cursor-pointer items-center justify-center rounded-full bg-craie/85 text-encre backdrop-blur-sm transition-colors hover:bg-craie"
               >
                 <IconeChevron
                   className={cn('size-4', sens === -1 && 'rotate-180')}

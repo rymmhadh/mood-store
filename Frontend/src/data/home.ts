@@ -191,6 +191,14 @@ export const ARTICLES: Article[] = [
     lecture: 5,
     image: '/images/home/journal-3.webp',
   },
+  {
+    slug: 'entretien',
+    titre: 'Guide d’entretien : bouclé, cuir, bois et laiton',
+    categorie: 'Entretien',
+    date: '2026-05-20',
+    lecture: 7,
+    image: '/images/home/atelier-3.webp',
+  },
 ];
 
 export const AVANT_APRES = {
